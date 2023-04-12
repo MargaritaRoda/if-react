@@ -1,15 +1,16 @@
-import bestDestIslandPNG from './assets/images/best_dest/island.png';
-import bestDestMaldivesPNG from './assets/images/best_dest/maldives.png';
-import bestDestSpainPNG from './assets/images/best_dest/spain.png';
-import bestDestNorwayPNG from './assets/images/best_dest/norway.png';
+import bestDestIslandPNG from './assets/images/bestDest/island.png';
+import bestDestMaldivesPNG from './assets/images/bestDest/maldives.png';
+import bestDestSpainPNG from './assets/images/bestDest/spain.png';
+import bestDestNorwayPNG from './assets/images/bestDest/norway.png';
 import kingKongHostelPNG from './assets/images/reviews/kingKongHostel.png';
 import rokokoHotelPNG from './assets/images/reviews/rokokoHotel.png';
 import ubudBaliResortPNG from './assets/images/reviews/ubudBaliResort.png';
 
-import { HomesList } from './components/HomeItems';
+import { HomesGuests } from './components/sections/HomesGuests';
 
-import { HOTELS_DATA } from './data';
 import './App.scss';
+import { Arrow } from './components/Arrow';
+import { Container } from './components/Container';
 
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
@@ -192,7 +193,8 @@ function App() {
         </symbol>
       </svg>
       <main className="top-section">
-        <div className="container">
+        <Container>
+          {/*<div className="container">*/}
           <header className="header">
             <div>
               <svg className="header__logo-icon">
@@ -417,7 +419,8 @@ function App() {
               </svg>
             </div>
           </div>
-        </div>
+          {/*</div>*/}
+        </Container>
       </main>
       <section className="homes" hidden id="js-available_hotels">
         <div className="container homes__container">
@@ -460,13 +463,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="homes" id="js-popular-hotels">
-        <HomesList
-          className="container"
-          title="Homes guests loves"
-          hotelsItems={HOTELS_DATA}
-        />
-      </section>
+      <HomesGuests />
 
       <section className="best-dest">
         <div className="container best-dest__container">
@@ -740,9 +737,10 @@ function App() {
                   </div>
                 </article>
               </div>
-              <div className="reviews__slider-next">
-                <div className="slider__arrow"></div>
-              </div>
+              {/*<div className="reviews__slider-next">*/}
+              <Arrow />
+              {/*<div className="slider__arrow"></div>*/}
+              {/*</div>*/}
             </div>
           </div>
         </section>

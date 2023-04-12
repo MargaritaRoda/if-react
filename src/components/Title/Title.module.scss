@@ -1,0 +1,12 @@
+.title {
+  text-align: center;
+  //margin: 0 auto 105px;
+  font-size: 40px;
+  line-height: 47px;
+  color: #383838;
+  @media (max-width: 760px) {
+    font-size: 28px;
+    line-height: 32px;
+    //margin: 0 auto 32px;
+  }
+}

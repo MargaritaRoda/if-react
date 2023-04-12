@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
-  /*--primary-color: #11b9ab;*/
 }
 
 .calendar__title {

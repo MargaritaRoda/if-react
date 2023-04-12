@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './HomeItemArticle.module.scss';
+import styles from './HotelCard.module.scss';
 
-export const HomeItemArticle = ({ city, country, imageUrl, name }) => {
+export const HotelCard = ({ city, country, imageUrl, name }) => {
   return (
     <article className={styles.item}>
       <img src={imageUrl} alt={name} className={styles.img} />

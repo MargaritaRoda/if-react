@@ -1,0 +1,16 @@
+.slider {
+  display: flex;
+  position: relative;
+  width: 100%;
+  @media (max-width: 1110px) {
+    width: 100%;
+  }
+}
+
+.items {
+  display: flex;
+  justify-content: flex-start;
+  gap: 14px;
+  overflow-x: hidden;
+  width: 100%;
+}
