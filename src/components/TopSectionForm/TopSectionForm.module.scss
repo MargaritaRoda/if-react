@@ -1,0 +1,179 @@
+.Form {
+  display: flex;
+  color: #ffffff;
+  font-size: 18px;
+  align-items: stretch;
+  @media (max-width: 600px) {
+    font-size: 15px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    background-color: var(--accent-color);
+    border: 8px solid var(--accent-color);
+  }
+}
+
+.formRowDest {
+  max-width: 33%;
+  @media (max-width: 600px) {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+.formLabelDest {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.inputPlace {
+  border-right: none;
+  padding-left: 24px;
+  border-radius: 8px 0 0 8px;
+  @media (max-width: 600px) {
+    border: none;
+    height: 38px;
+  }
+}
+.placeInputWrapper {
+  border-radius: 8px 0 0 8px;
+}
+.formRowCalendar {
+  max-width: 10%;
+  @media (max-width: 600px) {
+    max-width: calc(50% - 4px);
+  }
+}
+
+.formRowCalendarIn {
+  @media (max-width: 600px) {
+    margin-right: 4px;
+  }
+}
+.formRowCalendarOut {
+  @media (max-width: 600px) {
+    margin-left: 4px;
+  }
+}
+.inputCalendarIn {
+  text-align: center;
+  border-color: var(--accent-color);
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.inputCalendarOut {
+  text-align: center;
+  border-color: var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.formRowBooking {
+  max-width: 11%;
+  .top-section__form-label {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    max-width: calc(100% / 3);
+    .top-section__form-label {
+      display: block;
+    }
+  }
+}
+.formRowBookingAdults {
+  @media (max-width: 600px) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.inputAdults {
+  text-align: end;
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.formRowBookingChild {
+  @media (max-width: 600px) {
+    border-radius: 0;
+  }
+}
+
+.inputChildren {
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.formRowBookingRoom {
+  @media (max-width: 600px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.inputRooms {
+  border-left: none;
+  border-right: none;
+  text-align: start;
+  @media (max-width: 360px) {
+    border-left: none;
+    border-top: 4px solid var(--accent-color);
+    border-right: 4px solid var(--accent-color);
+    border-bottom: 4px solid var(--accent-color);
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.formRows {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 24px;
+  flex: 1;
+  position: relative;
+  @media (max-width: 600px) {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #383838;
+    gap: 0;
+  }
+}
+.formRowBtn {
+  flex: 0 1 190px;
+  @media (max-width: 600px) {
+    padding: 0;
+    margin-bottom: 0;
+    flex: 1;
+  }
+}
+
+.btnWrapper {
+  background: #ffffff;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  border-radius: 0 8px 8px 0;
+  @media (max-width: 600px) {
+    background: var(--accent-color);
+  }
+}
