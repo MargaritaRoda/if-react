@@ -1,0 +1,40 @@
+.headerNav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.headerNavItemIconNight {
+  max-width: 100%;
+  width: 30px;
+  aspect-ratio: 1/1;
+  @media (max-width: 360px) {
+    width: 16px;
+  }
+}
+
+.headerNavItemIconAcc {
+  max-width: 100%;
+  width: 40px;
+  aspect-ratio: 1/1;
+  @media (max-width: 360px) {
+    width: 24px;
+  }
+}
+
+.headerNavItemIconMobileMenu {
+  max-width: 100%;
+  width: 24px;
+  aspect-ratio: 1/1;
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+  @media (max-width: 360px) {
+    display: block;
+  }
+}
+
+.header__nav-item--mobile {
+  display: none;
+}

@@ -406,119 +406,119 @@ h6 {
 /* adults-form end */
 
 /* header starts */
-.header {
-  margin: -70px auto;
-  display: flex;
-  justify-content: space-between;
-  color: #ffffff;
-  font-size: 24px;
-  align-items: center;
-}
+/*.header {*/
+/*  margin: -70px auto;*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  color: #ffffff;*/
+/*  font-size: 24px;*/
+/*  align-items: center;*/
+/*}*/
 
 @media (max-width: 760px) {
-  .header {
-    margin-top: 0;
-  }
+  /*.header {*/
+  /*  margin-top: 0;*/
+  /*}*/
 }
 
-.header__logo-icon {
-  width: 100%;
-  max-width: 205px;
-  aspect-ratio: 205/40;
-  fill: var(--primary-color);
-}
+/*.header__logo-icon {*/
+/*  width: 100%;*/
+/*  max-width: 205px;*/
+/*  aspect-ratio: 205/40;*/
+/*  fill: var(--primary-color);*/
+/*}*/
 
-.header__nav {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
+/*.header__nav {*/
+/*  display: flex;*/
+/*  gap: 24px;*/
+/*  align-items: center;*/
+/*}*/
 
-.header__nav-item {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
+/*.header__nav-item {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  position: relative;*/
+/*}*/
 
-.header__nav-item--link::after {
-  content: '';
-  width: 100%;
-  max-width: 50px;
-  line-height: 4px;
-  border: solid transparent;
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translate(-50%);
-  transition: border 0.5s 100ms ease-in;
-}
+/*.header__nav-item--link::after {*/
+/*  content: '';*/
+/*  width: 100%;*/
+/*  max-width: 50px;*/
+/*  line-height: 4px;*/
+/*  border: solid transparent;*/
+/*  position: absolute;*/
+/*  top: calc(100% + 12px);*/
+/*  left: 50%;*/
+/*  transform: translate(-50%);*/
+/*  transition: border 0.5s 100ms ease-in;*/
+/*}*/
 
-.header__nav-item--link:hover::after {
-  border: solid var(--accent-color);
-}
+/*.header__nav-item--link:hover::after {*/
+/*  border: solid var(--accent-color);*/
+/*}*/
 
-.header__nav-item-icon--night {
-  max-width: 100%;
-  width: 30px;
-  aspect-ratio: 1/1;
-}
+/*.header__nav-item-icon--night {*/
+/*  max-width: 100%;*/
+/*  width: 30px;*/
+/*  aspect-ratio: 1/1;*/
+/*}*/
 
-.header__nav-item-icon--acc {
-  max-width: 100%;
-  width: 40px;
-  aspect-ratio: 1/1;
-}
+/*.header__nav-item-icon--acc {*/
+/*  max-width: 100%;*/
+/*  width: 40px;*/
+/*  aspect-ratio: 1/1;*/
+/*}*/
 
-.header__nav-item-icon--mobile-menu {
-  max-width: 100%;
-  width: 24px;
-  aspect-ratio: 1/1;
-  display: none;
-}
+/*.header__nav-item-icon--mobile-menu {*/
+/*  max-width: 100%;*/
+/*  width: 24px;*/
+/*  aspect-ratio: 1/1;*/
+/*  display: none;*/
+/*}*/
 
 @media (max-width: 600px) {
-  .header__nav-item-icon--mobile-menu {
-    display: block;
-  }
+  /*.header__nav-item-icon--mobile-menu {*/
+  /*  display: block;*/
+  /*}*/
 
   .header__nav-item--mobile {
     display: none;
   }
 
-  .header__logo-icon {
-    max-width: 180px;
-    padding-right: 16px;
-  }
+  /*.header__logo-icon {*/
+  /*  max-width: 180px;*/
+  /*  padding-right: 16px;*/
+  /*}*/
 }
 
 @media (max-width: 360px) {
-  .header {
-    margin: 0 16px;
-  }
+  /*.header {*/
+  /*  margin: 0 16px;*/
+  /*}*/
 
-  .header__logo-icon {
-    max-width: 122px;
-  }
+  /*.header__logo-icon {*/
+  /*  max-width: 122px;*/
+  /*}*/
 
-  .header__nav-item-icon--mobile-menu {
-    display: block;
-  }
+  /*.header__nav-item-icon--mobile-menu {*/
+  /*  display: block;*/
+  /*}*/
 
-  .header__nav-item--mobile {
-    display: none;
-  }
+  /*.header__nav-item--mobile {*/
+  /*  display: none;*/
+  /*}*/
 
   .header__hr {
     display: none;
   }
 
-  .header__nav-item-icon--night {
-    width: 16px;
-  }
+  /*.header__nav-item-icon--night {*/
+  /*  width: 16px;*/
+  /*}*/
 
-  .header__nav-item-icon--acc {
-    width: 24px;
-  }
+  /*.header__nav-item-icon--acc {*/
+  /*  width: 24px;*/
+  /*}*/
 }
 
 /* header ends */
@@ -1405,9 +1405,9 @@ h6 {
   max-width: 1232px;
 }
 
-.footer__logo--mobile {
-  display: none;
-}
+/*.footer__logo--mobile {*/
+/*  display: none;*/
+/*}*/
 
 .footer__items {
   display: flex;
@@ -1460,18 +1460,18 @@ h6 {
     padding: 24px 0 40px;
   }
 
-  .footer__logo {
-    display: flex;
-    max-width: 98px;
-    margin: 0 auto 40px;
-  }
+  /*.footer__logo {*/
+  /*  display: flex;*/
+  /*  max-width: 98px;*/
+  /*  margin: 0 auto 40px;*/
+  /*}*/
 
-  .footer__logo-icon {
-    width: 100%;
-    max-width: 205px;
-    aspect-ratio: 205/40;
-    fill: #ffffff;
-  }
+  /*.footer__logo-icon {*/
+  /*  width: 100%;*/
+  /*  max-width: 205px;*/
+  /*  aspect-ratio: 205/40;*/
+  /*  fill: #ffffff;*/
+  /*}*/
 
   .footer__item {
     display: flex;

@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
-import { HOTELS_DATA } from '../../data';
 import { Button } from '../Button';
 import { AdultsFormPanel } from '../AdultsFormPanel';
 import { TopSectionFormInput } from '../TopSectionFormInput';
 
 import styles from './TopSectionForm.module.scss';
+import { getHotelsData } from '../../services/hotelsData';
 
 export const TopSectionForm = ({ setAvailableHotels }) => {
   const handleFormSubmit = (event) => {
@@ -16,15 +16,10 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
 
     const { place } = data;
     const placeDestination = place.toLowerCase();
-    setAvailableHotels(
-      HOTELS_DATA.filter(({ name, city, country }) => {
-        return (
-          name.toLowerCase().includes(placeDestination) ||
-          city.toLowerCase().includes(placeDestination) ||
-          country.toLowerCase().includes(placeDestination)
-        );
-      }),
-    );
+
+    getHotelsData(placeDestination).then((hotels) => {
+      setAvailableHotels(hotels);
+    });
   };
 
   return (
