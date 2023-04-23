@@ -1,0 +1,19 @@
+.formPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(calc(100% + 12px));
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 8px;
+  color: #333333;
+  font-size: 16px;
+  z-index: 2;
+
+  &_hidden {
+    display: none;
+  }
+}

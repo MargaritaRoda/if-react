@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid var(--primary-color);
+  background: #ffffff;
+  color: var(--primary-color);
+  padding: 8px 12px;
+  &:disabled {
+    border: 1px solid #cecece;
+    color: #cecece;
+  }
+}

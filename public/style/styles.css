@@ -266,28 +266,9 @@ h6 {
   max-width: 33%;
 }
 
-.top-section__form-row--calendar {
-  max-width: 10%;
-}
-
-.top-section__form-row--booking {
-  max-width: 11%;
-}
-
-.top-section__form-row--btn {
-  flex: 0 1 190px;
-}
-
 .top-section__form-label {
   padding-left: 24px;
   margin-bottom: 24px;
-}
-
-.top-section__input-wrapper {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  background: #ffffff;
 }
 
 .top-section__input {
@@ -319,68 +300,13 @@ h6 {
   border-left: none;
 }
 
-@media (max-width: 360px) {
-}
-
-.top-section__form-row--booking .top-section__form-label {
-  display: none;
-}
-
 .top-section__input--adults {
   text-align: end;
-}
-
-.top-section__input--children {
-  border-left: none;
-  border-right: none;
-  text-align: center;
 }
 
 .top-section__child-lines {
   display: flex;
   flex-direction: column;
-}
-
-.top-section__input--rooms {
-  border-left: none;
-  border-right: none;
-  text-align: start;
-}
-
-@media (max-width: 360px) {
-  .top-section__input--rooms {
-    border-left: none;
-    border-top: 4px solid var(--accent-color);
-    border-right: 4px solid var(--accent-color);
-    border-bottom: 4px solid var(--accent-color);
-    border-radius: 0 8px 8px 0;
-    text-align: center;
-  }
-}
-
-.top-section__btn-wrapper {
-  background: #ffffff;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  border-radius: 0 8px 8px 0;
-}
-
-.top-section__submit-btn {
-  height: 64px;
-  width: 100%;
-  border-radius: 8px;
-  color: #ffffff;
-  background-color: var(--primary-color);
-  font-size: 24px;
-  border: 1px solid var(--primary-color);
-  transition: background-color 300ms ease-in;
-}
-.top-section__submit-btn:hover {
-  background-color: #225c9b;
-}
-.top-section__submit-btn:active {
-  background-color: #1d4d81;
 }
 
 .top-section__icons {
@@ -432,38 +358,9 @@ h6 {
     flex-basis: 100%;
   }
 
-  .top-section__form-row--calendar {
-    max-width: calc(50% - 4px);
-  }
-
-  .top-section__form-row--calendar--in {
-    margin-right: 4px;
-  }
-
-  .top-section__form-row--calendar--out {
-    margin-left: 4px;
-  }
-
-  .top-section__form-row--booking {
-    max-width: calc(100% / 3);
-  }
-
   .top-section__input {
     height: 48px;
     font-size: 15px;
-  }
-
-  .top-section__input--labeled {
-    text-align: left;
-    padding: 0 5px;
-    border: none;
-    border-radius: 8px;
-    height: 24px;
-  }
-
-  .top-section__input--place {
-    border: none;
-    height: 38px;
   }
 
   .top-section__form-row--adult {
@@ -477,91 +374,13 @@ h6 {
     border-left: 1px solid #bfbfbf;
   }
 
-  .top-section__form-row--child {
-    border-radius: 0;
-  }
-
-  .top-section__form-row--room {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  .top-section__btn-wrapper {
-    background: var(--accent-color);
-  }
-
   .top-section__submit-btn {
     height: 48px;
     border-radius: 8px;
     font-size: 19px;
   }
-
-  .top-section__form-row--btn {
-    padding: 0;
-    margin-bottom: 0;
-    flex: 1;
-  }
-
-  .top-section__form-row--booking .top-section__form-label {
-    display: block;
-  }
 }
 
-.form-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translateY(calc(100% + 12px));
-  background: #ffffff;
-  /*width: 300px;*/
-  padding: 22px;
-  border-radius: 8px;
-  color: #333333;
-  font-size: 16px;
-  z-index: 2;
-}
-
-.form-panel.form-panel--hidden {
-  display: none;
-}
-
-/* top-section ends */
-/*adults-form start */
-.adults-form {
-  width: 300px;
-}
-
-.adults-form__row {
-  display: flex;
-}
-
-.adults-form__row-left {
-  display: flex;
-  flex: 1;
-  align-items: center;
-}
-
-.adults-form__row-right {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.adults-form__btn {
-  border: 1px solid var(--primary-color);
-  background: #ffffff;
-  color: var(--primary-color);
-  padding: 8px 12px;
-}
-
-.adults-form__btn:disabled {
-  border: 1px solid #cecece;
-  color: #cecece;
-}
 .adults-form__children--hidden {
   display: none;
 }
