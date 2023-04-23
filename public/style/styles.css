@@ -6,6 +6,8 @@
   --column-unit-md: calc(100% / 12);
   --primary-color: #3077c6;
   --accent-color: #f5bd41;
+  --border-color: #cecece;
+  --black-color: #383838;
 }
 
 * {

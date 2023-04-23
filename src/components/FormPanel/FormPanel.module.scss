@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 12px;
   position: absolute;
-  right: 0;
+
   bottom: 0;
   transform: translateY(calc(100% + 12px));
   background: #ffffff;
@@ -12,8 +12,17 @@
   color: #333333;
   font-size: 16px;
   z-index: 2;
+  box-shadow: 0 0 5px var(--border-color);
 
   &_hidden {
     display: none;
   }
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
 }

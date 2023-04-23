@@ -11,11 +11,13 @@ export const getPopularHotelsData = async () => {
   }
 };
 
-export const getHotelsData = async (search) => {
+export const getHotelsData = async (search, checkIn, checkOut) => {
   try {
     const response = await axios.get(API_HOTELS_URL, {
       params: {
         search: search,
+        checkIn: checkIn,
+        checkOut: checkOut,
       },
     });
     return response.data;

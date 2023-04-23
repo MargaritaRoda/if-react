@@ -1,0 +1,78 @@
+.calendar-form-panel {
+  --rmdp-primary: var(--primary-color);
+  --rmdp-secondary: #bfbfbf;
+  --rmdp-hover: #bfbfbf;
+  --rmdp-ranged: #f3f3f4;
+  --rmdp-ranged-color: var(--black-color);
+  --rmdp-week-day: var(--black-color);
+
+  &.rmdp-wrapper {
+    border: none;
+    box-shadow: none;
+  }
+
+  .rmdp-panel-body li {
+    background-color: var(--rmdp-primary);
+    box-shadow: none;
+  }
+
+  .rmdp-week-day {
+    color: var(--rmdp-week-day);
+  }
+
+  .rmdp-day.rmdp-deactive {
+    color: var(--rmdp-secondary);
+  }
+
+  .rmdp-range {
+    background-color: var(--rmdp-ranged);
+    color: var(--rmdp-ranged-color);
+    box-shadow: none;
+    &.start,
+    &.end {
+      background-color: var(--rmdp-primary);
+      color: #fff;
+    }
+  }
+
+  .rmdp-arrow {
+    border: solid var(--rmdp-primary);
+    border-width: 0 2px 2px 0;
+  }
+
+  .rmdp-arrow-container:hover {
+    background-color: var(--rmdp-primary);
+    box-shadow: none;
+  }
+
+  .rmdp-panel-body::-webkit-scrollbar-thumb {
+    background: var(--rmdp-primary);
+  }
+
+  .rmdp-day.rmdp-today span {
+    background-color: transparent;
+    color: var(--rmdp-primary);
+  }
+
+  .rmdp-rtl .rmdp-panel {
+    border-left: unset;
+    border-right: 1px solid var(--rmdp-secondary);
+  }
+
+  .rmdp-day.rmdp-selected span:not(.highlight) {
+    background-color: var(--rmdp-primary);
+    box-shadow: none;
+  }
+
+  .rmdp-day:not(.rmdp-day-hidden) span:hover {
+    background-color: var(--rmdp-hover) !important;
+  }
+
+  .rmdp-action-button {
+    color: var(--rmdp-primary);
+  }
+
+  .rmdp-button:not(.rmdp-action-button) {
+    background-color: var(--rmdp-primary);
+  }
+}

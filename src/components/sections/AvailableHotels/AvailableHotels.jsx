@@ -5,7 +5,10 @@ import { Container } from '../../Container';
 import { Title } from '../../Title';
 import { HotelsList } from '../../HotelsList';
 
-export const AvailableHotels = ({ items }) => {
+import { useAvailableHotelsContext } from '../../../contexts/AvailableHotels.context';
+
+export const AvailableHotels = () => {
+  const { items } = useAvailableHotelsContext();
   if (items.length === 0) {
     return null;
   }

@@ -14,6 +14,7 @@ export const TopSectionFormInput = ({
   value,
   readOnly,
   inputWrapperClassName,
+  onClick,
   children,
 }) => {
   return (
@@ -38,6 +39,7 @@ export const TopSectionFormInput = ({
             styles.inputLabeled,
             inputClassName,
           )}
+          onClick={onClick}
         />
         {children}
       </div>

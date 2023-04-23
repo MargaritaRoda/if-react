@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import styles from './AdultsFormPanel.module.scss';
+
 import { FormPanel } from '../FormPanel';
 import { AdultsFormCounter } from '../AdultsFormCounter';
 
-export const AdultsFormPanel = () => {
+import styles from './AdultsFormPanel.module.scss';
+
+export const AdultsFormPanel = ({ visible }) => {
   const [adultsCount, setAdultsCount] = useState(0);
   const [childrenCount, setChildrenCount] = useState(0);
   const [roomsCount, setRoomsCount] = useState(0);
 
   return (
-    <FormPanel className={styles.adultsForm}>
+    <FormPanel className={styles.adultsForm} visible={visible}>
       <AdultsFormCounter
         name="Adults"
         maxValue={10}
