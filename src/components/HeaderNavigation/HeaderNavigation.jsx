@@ -2,9 +2,7 @@ import React from 'react';
 
 import { HeaderNavigationLink } from '../HeaderNavigationLink';
 import { HeaderNavIcon } from '../HeaderNavIcon';
-import { Night } from '../../icons/Night';
-import { Account } from '../../icons/Account';
-import { Menu } from '../../icons/Menu';
+import { Icon } from '../../icons/Icon';
 
 import styles from './HeaderNavigation.module.scss';
 
@@ -15,15 +13,18 @@ export const HeaderNavigation = () => {
       <HeaderNavigationLink href="#">Attractions</HeaderNavigationLink>
 
       <HeaderNavIcon>
-        <Night className={styles.headerNavItemIconNight} />
+        <Icon className={styles.headerNavItemIconNight} name="night" />
       </HeaderNavIcon>
 
       <HeaderNavIcon>
-        <Account className={styles.headerNavItemIconAcc} />
+        <Icon className={styles.headerNavItemIconAcc} name="account" />
       </HeaderNavIcon>
 
       <HeaderNavIcon>
-        <Menu className={styles.headerNavItemIconMobileMenu} />
+        <Icon
+          className={styles.headerNavItemIconMobileMenu}
+          name="mobile-menu"
+        />
       </HeaderNavIcon>
     </nav>
   );
