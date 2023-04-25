@@ -180,12 +180,12 @@ h6 {
   height: 0;
 }
 
-.google-sprite {
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
+/*.google-sprite {*/
+/*  position: absolute;*/
+/*  visibility: hidden;*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*}*/
 
 .container {
   max-width: 1232px;

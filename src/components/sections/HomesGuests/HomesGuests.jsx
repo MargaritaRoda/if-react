@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Container } from '../../Container';
 import { Title } from '../../Title';
@@ -10,11 +10,14 @@ import styles from './HomesGuests.module.scss';
 export const HomesGuests = () => {
   const [hotelsData, setHotelsData] = useState([]);
 
+  const getData = useCallback(async () => {
+    const data = await getPopularHotelsData();
+    setHotelsData(data);
+  }, []);
+
   useEffect(() => {
-    getPopularHotelsData().then((hotels) => {
-      setHotelsData(hotels);
-    });
-  }, [setHotelsData]);
+    getData();
+  }, [getData]);
 
   return (
     <section className={styles.section}>
