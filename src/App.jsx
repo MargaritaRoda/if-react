@@ -528,21 +528,18 @@ function App() {
                   </div>
                 </article>
               </div>
-              {/*<div className="reviews__slider-next">*/}
               <Arrow />
-              {/*<div className="slider__arrow"></div>*/}
-              {/*</div>*/}
             </div>
           </div>
         </section>
       </div>
       <footer className="footer">
         <div className="container footer__container">
-          <div className="footer__logo footer__logo--mobile col-xs-2">
-            <svg className="footer__logo-icon">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />
-            </svg>
-          </div>
+          {/*<div className="footer__logo footer__logo--mobile col-xs-2">*/}
+          {/*  <svg className="footer__logo-icon">*/}
+          {/*    <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />*/}
+          {/*  </svg>*/}
+          {/*</div>*/}
           <nav className="footer__items col-xs-5">
             <div className="footer__item">
               <ul className="footer__links">
