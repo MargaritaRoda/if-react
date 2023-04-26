@@ -1,0 +1,28 @@
+.headerNavItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.headerNavItemLink::after {
+  content: '';
+  width: 100%;
+  max-width: 50px;
+  line-height: 4px;
+  border: solid transparent;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translate(-50%);
+  transition: border 0.5s 100ms ease-in;
+}
+
+.headerNavItemLink:hover::after {
+  border: solid var(--accent-color);
+}
+
+.headerNavItemMobile {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}

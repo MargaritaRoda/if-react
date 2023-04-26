@@ -14,6 +14,7 @@ import { Arrow } from './components/Arrow';
 import { Container } from './components/Container';
 import { TopSectionForm } from './components/TopSectionForm';
 import { AvailableHotels } from './components/sections/AvailableHotels';
+import { Header } from './components/Header';
 
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
@@ -128,10 +129,7 @@ function App() {
               width="1"
               height="1"
             >
-              <use
-                // xlink:href="#image0_0_1"
-                transform="scale(0.000454545 0.000831255)"
-              />
+              <use transform="scale(0.000454545 0.000831255)" />
             </pattern>
             <linearGradient
               id="paint0_linear_0_1"
@@ -199,38 +197,7 @@ function App() {
       </svg>
       <main className="top-section">
         <Container>
-          {/*<div className="container">*/}
-          <header className="header">
-            <div>
-              <svg className="header__logo-icon">
-                <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />
-              </svg>
-            </div>
-            <nav className="header__nav">
-              <div className="header__nav-item header__nav-item--link header__nav-item--mobile">
-                <a href="#">Stays</a>
-              </div>
-              <div className="header__nav-item header__nav-item--link header__nav-item--mobile">
-                <a href="#">Attractions</a>
-              </div>
-              <div className="header__nav-item">
-                <svg className="header__nav-item-icon header__nav-item-icon--night">
-                  <use href={`${PUBLIC_PATH}/images/sprite.svg#night`} />
-                </svg>
-              </div>
-              <div className="header__nav-item">
-                <svg className="header__nav-item-icon header__nav-item-icon--acc">
-                  <use href={`${PUBLIC_PATH}/images/sprite.svg#account`} />
-                </svg>
-              </div>
-              <div className="header__nav-item header__nav-item-icon--mobile-menu">
-                <svg className="header__nav-item-icon header__nav-item-icon--mobile-menu">
-                  <use href={`${PUBLIC_PATH}/images/sprite.svg#mobile-menu`} />
-                </svg>
-              </div>
-            </nav>
-          </header>
-
+          <Header />
           <div className="top-section__body">
             <h1 className="top-section__title">
               Discover stays
@@ -252,7 +219,6 @@ function App() {
               </svg>
             </div>
           </div>
-          {/*</div>*/}
         </Container>
       </main>
 
@@ -562,21 +528,18 @@ function App() {
                   </div>
                 </article>
               </div>
-              {/*<div className="reviews__slider-next">*/}
               <Arrow />
-              {/*<div className="slider__arrow"></div>*/}
-              {/*</div>*/}
             </div>
           </div>
         </section>
       </div>
       <footer className="footer">
         <div className="container footer__container">
-          <div className="footer__logo footer__logo--mobile col-xs-2">
-            <svg className="footer__logo-icon">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />
-            </svg>
-          </div>
+          {/*<div className="footer__logo footer__logo--mobile col-xs-2">*/}
+          {/*  <svg className="footer__logo-icon">*/}
+          {/*    <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />*/}
+          {/*  </svg>*/}
+          {/*</div>*/}
           <nav className="footer__items col-xs-5">
             <div className="footer__item">
               <ul className="footer__links">
