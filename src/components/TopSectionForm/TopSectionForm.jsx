@@ -1,13 +1,19 @@
+import { useState } from 'react';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
 import { AdultsFormPanel } from '../AdultsFormPanel';
 import { TopSectionFormInput } from '../TopSectionFormInput';
-
-import styles from './TopSectionForm.module.scss';
 import { getHotelsData } from '../../services/hotelsData';
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
 
-export const TopSectionForm = ({ setAvailableHotels }) => {
+import { CalendarInput } from './CalendarInput';
+import styles from './TopSectionForm.module.scss';
+
+export const TopSectionForm = () => {
+  const { setItems: setAvailableHotels } = useAvailableHotelsContext();
+  const { checkInOut } = useTopSectionFormContext();
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -17,8 +23,19 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
     const { place } = data;
     const placeDestination = place.toLowerCase();
 
-    getHotelsData(placeDestination).then((hotels) => {
+    const checkin = checkInOut?.[0]?.toString();
+    const checkOut = checkInOut?.[1]?.toString();
+
+    getHotelsData(placeDestination, checkin, checkOut).then((hotels) => {
       setAvailableHotels(hotels);
+    });
+  };
+
+  const [visibilityAdultsFormPanel, setVisibilityAdultsFormPanel] =
+    useState(false);
+  const handleAdultsInputsClick = () => {
+    setVisibilityAdultsFormPanel((prevState) => {
+      return !prevState;
     });
   };
 
@@ -35,27 +52,7 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
         inputWrapperClassName={styles.placeInputWrapper}
       />
 
-      <TopSectionFormInput
-        className={classNames(styles.formRowCalendar, styles.formRowCalendarIn)}
-        id="calendar-in"
-        label="Check-in"
-        name="calendar-in"
-        value="Tue 15 Sept"
-        inputClassName={styles.inputCalendarIn}
-        readOnly
-      />
-      <TopSectionFormInput
-        className={classNames(
-          styles.formRowCalendar,
-          styles.formRowCalendarOut,
-        )}
-        id="calendar-out"
-        label="Check-out"
-        name="calendar-out"
-        value="Sat 19 Sept"
-        inputClassName={styles.inputCalendarOut}
-        readOnly
-      />
+      <CalendarInput />
 
       <TopSectionFormInput
         className={classNames(
@@ -67,6 +64,7 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
         name="adult"
         value="0 Adults"
         inputClassName={styles.inputAdults}
+        onClick={handleAdultsInputsClick}
         readOnly
       />
       <TopSectionFormInput
@@ -79,6 +77,7 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
         name="child"
         value="0 Children"
         inputClassName={styles.inputChildren}
+        onClick={handleAdultsInputsClick}
         readOnly
       />
       <TopSectionFormInput
@@ -88,9 +87,10 @@ export const TopSectionForm = ({ setAvailableHotels }) => {
         name="room"
         value="0 room"
         inputClassName={styles.inputRooms}
+        onClick={handleAdultsInputsClick}
         readOnly
       >
-        <AdultsFormPanel />
+        <AdultsFormPanel visible={visibilityAdultsFormPanel} />
       </TopSectionFormInput>
 
       <div className={classNames(styles.formRows, styles.formRowBtn)}>

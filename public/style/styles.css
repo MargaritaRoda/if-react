@@ -6,6 +6,8 @@
   --column-unit-md: calc(100% / 12);
   --primary-color: #3077c6;
   --accent-color: #f5bd41;
+  --border-color: #cecece;
+  --black-color: #383838;
 }
 
 * {
@@ -178,12 +180,12 @@ h6 {
   height: 0;
 }
 
-.google-sprite {
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
+/*.google-sprite {*/
+/*  position: absolute;*/
+/*  visibility: hidden;*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*}*/
 
 .container {
   max-width: 1232px;

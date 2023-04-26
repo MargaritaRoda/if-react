@@ -1,0 +1,45 @@
+.topSection {
+  min-height: 100vh;
+  background-image: url('../../assets/images/background.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.topSectionBody {
+  display: flex;
+  flex-direction: column;
+  margin: 202px 0 120px;
+  @media (max-width: 360px) {
+    margin: 0 auto 32px;
+  }
+}
+
+.topSectionTitle {
+  color: #ffffff;
+  font-size: 50px;
+  margin-bottom: 100px;
+  @media (max-width: 600px) {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+  @media (max-width: 360px) {
+    font-size: 30px;
+    margin: 88px auto 31px;
+    padding-left: 8px;
+  }
+}
+
+.topSectionsIcons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.apple {
+  width: 119px;
+  height: 40px;
+}
+.topSectionGoogle {
+  width: 135px;
+  height: 40px;
+}

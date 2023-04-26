@@ -39,40 +39,26 @@
   border-radius: 8px 0 0 8px;
 }
 .formRowCalendar {
-  max-width: 10%;
+  max-width: 25%;
   @media (max-width: 600px) {
     max-width: calc(50% - 4px);
   }
 }
 
-.formRowCalendarIn {
+.formRowCalendarInOut {
   @media (max-width: 600px) {
     margin-right: 4px;
-  }
-}
-.formRowCalendarOut {
-  @media (max-width: 600px) {
     margin-left: 4px;
   }
 }
-.inputCalendarIn {
-  text-align: center;
-  border-color: var(--accent-color);
-  border-radius: 8px 0 0 8px;
-  border-right: none;
-  @media (max-width: 600px) {
-    text-align: left;
-  }
-}
 
-.inputCalendarOut {
+.inputCalendarInOut {
   text-align: center;
   border-color: var(--accent-color);
-  border-radius: 0 8px 8px 0;
-  border-left: none;
   @media (max-width: 600px) {
     text-align: left;
   }
+  border-radius: 8px;
 }
 
 .formRowBooking {
