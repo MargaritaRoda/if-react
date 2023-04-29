@@ -13,7 +13,7 @@
 }
 
 .footerLogoIconMobile {
-  //див обертка
+  //div wrapper
   display: none;
   @media (max-width: 360px) {
     display: flex;
@@ -23,7 +23,7 @@
 }
 
 .footerLogoIcon {
-  //сам svg логотип
+  //class svg logo for footer
   @media (max-width: 360px) {
     width: 100%;
     max-width: 205px;

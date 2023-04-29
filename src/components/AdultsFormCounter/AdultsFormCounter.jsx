@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './AdultsFormCounter.module.scss';
 
-export const AdultsFormCounter = ({ name, value, onChange, maxValue }) => {
-  const handleMinusClick = (e) => {
-    e.preventDefault();
-    onChange(value - 1);
-  };
-  const handlePlusClick = (e) => {
-    e.preventDefault();
-    onChange(value + 1);
-  };
+export const AdultsFormCounter = ({
+  name,
+  value,
+  onChange,
+  maxValue,
+  minValue,
+}) => {
+  const handleMinusClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      onChange(value - 1);
+    },
+    [onChange, value],
+  );
+  const handlePlusClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      onChange(value + 1);
+    },
+    [onChange, value],
+  );
+
   return (
     <div className={styles.root}>
       <div className={styles.header}>{name}</div>
       <div className={styles.main}>
         <button
-          disabled={value > 0}
+          disabled={value === minValue}
           className={styles.btn}
           onClick={handleMinusClick}
         >
