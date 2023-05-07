@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react';
+import { memo, useMemo, useState, useCallback } from 'react';
 import classNames from 'classnames';
 
 import { TopSectionFormInput } from '../TopSectionFormInput';
@@ -8,7 +8,7 @@ import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context'
 
 import styles from './TopSectionForm.module.scss';
 
-export const CalendarInput = () => {
+export const CalendarInput = memo(() => {
   const [visibilityFormPanel, setVisibilityFormPanel] = useState(false);
   const { checkInOut } = useTopSectionFormContext();
 
@@ -48,4 +48,4 @@ export const CalendarInput = () => {
       </TopSectionFormInput>
     </>
   );
-};
+});

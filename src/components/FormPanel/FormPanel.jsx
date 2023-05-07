@@ -1,13 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './FormPanel.module.scss';
 
-export const FormPanel = ({
-  children,
-  visible = false,
-  className,
-  align = 'right',
-}) => {
+export const FormPanel = ({ children, visible, className, align }) => {
   return (
     <div
       className={classNames(
@@ -23,4 +19,15 @@ export const FormPanel = ({
       {children}
     </div>
   );
+};
+
+FormPanel.defaultProps = {
+  align: 'right',
+  visible: false,
+};
+
+FormPanel.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  align: PropTypes.oneOf(['right', 'left']).isRequired,
 };

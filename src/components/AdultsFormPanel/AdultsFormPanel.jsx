@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { FormPanel } from '../FormPanel';
 import { AdultsFormCounter } from '../AdultsFormCounter';
-import { ChildrenAgePanel } from '../ChildrenAgePannel/ChildrenAgePanel';
+import { ChildrenAgePanel } from '../ChildrenAgePannel';
 
 import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
 
 import styles from './AdultsFormPanel.module.scss';
 
-export const AdultsFormPanel = ({ visible }) => {
+export const AdultsFormPanel = memo(({ visible }) => {
   const {
     adultsCount,
     setAdultsCount,
@@ -45,4 +45,4 @@ export const AdultsFormPanel = ({ visible }) => {
       <ChildrenAgePanel value={childrenCount} onChange={setChildrenCount} />
     </FormPanel>
   );
-};
+});
