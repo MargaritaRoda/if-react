@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Button.module.scss';
+import classNames from 'classnames';
 
-export const Button = ({ children, type }) => {
+import styles from './Button.module.scss';
+export const Button = ({ children, type, className }) => {
   return (
-    <button className={styles.btn} type={type}>
+    <button className={classNames(styles.btn, className)} type={type}>
       {children}
     </button>
   );

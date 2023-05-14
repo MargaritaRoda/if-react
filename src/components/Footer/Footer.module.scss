@@ -1,0 +1,87 @@
+.footer {
+  background-color: #10367c;
+  color: #ffffff;
+}
+.footerContainer {
+  max-width: 1232px;
+  @media (max-width: 360px) {
+    padding: 24px 0 40px;
+  }
+}
+
+.footerLogoMobile {
+  display: none;
+  @media (max-width: 360px) {
+    display: flex;
+    max-width: 98px;
+    margin: 0 auto 40px;
+  }
+}
+.footerLogoIcon {
+  @media (max-width: 360px) {
+    display: block;
+    width: 100%;
+    max-width: 205px;
+    aspect-ratio: 205/40;
+    fill: #ffffff;
+  }
+}
+.footerItems {
+  display: flex;
+  @media (max-width: 360px) {
+    margin: 0 auto 32px;
+  }
+}
+.footerItem {
+  flex: 1;
+  font-size: 20px;
+  @media (max-width: 600px) {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+  }
+  @media (max-width: 360px) {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+  }
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.footerCopyright {
+  margin-top: 64px;
+  font-size: 14px;
+  @media (max-width: 600px) {
+    text-align: center;
+  }
+  @media (max-width: 360px) {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.footerLinksItem:not(:last-child) {
+  padding-bottom: 24px;
+  @media (max-width: 360px) {
+    padding: 0;
+  }
+}
+.footerLinksItemDesktop {
+  @media (max-width: 600px) {
+    display: none;
+  }
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
+.footerLinksHeader {
+  font-size: 20px;
+  @media (max-width: 360px) {
+    font-size: 15px;
+    text-decoration: underline;
+  }
+}

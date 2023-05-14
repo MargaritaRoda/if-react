@@ -14,6 +14,7 @@ export const TopSection = () => {
     <main className={styles.topSection}>
       <Container>
         <Header />
+
         <div className={styles.topSectionBody}>
           <h1 className={styles.topSectionTitle}>
             Discover stays
