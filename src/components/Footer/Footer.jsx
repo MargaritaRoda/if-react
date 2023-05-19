@@ -6,6 +6,12 @@ import { Icon } from '../../icons/Icon';
 import { Container } from '../Container';
 import { FooterLink } from './FooterLink';
 
+import {
+  footerLinksTextAbout,
+  footerLinksTextProperty,
+  footerLinksTextSupport,
+} from '../../services/footerLinksText';
+
 import styles from './Footer.module.scss';
 
 export const Footer = () => {
@@ -29,10 +35,9 @@ export const Footer = () => {
               <li className={styles.footerLinksItem}>
                 <h3 className={styles.footerLinksHeader}>About</h3>
               </li>
-              <FooterLink text="How to Triphouse works" />
-              <FooterLink text="Careers" />
-              <FooterLink text="Privacy" />
-              <FooterLink text="Terms" />
+              {footerLinksTextAbout.map((item, index) => {
+                return <FooterLink key={index} text={item} />;
+              })}
             </ul>
           </div>
           <div className={styles.footerItem}>
@@ -40,12 +45,9 @@ export const Footer = () => {
               <li className={styles.footerLinksItem}>
                 <h3 className={styles.footerLinksHeader}>Property types</h3>
               </li>
-              <FooterLink text="Guest house" />
-              <FooterLink text="Hotels" />
-              <FooterLink text="Apartments" />
-              <FooterLink text="Villas" />
-              <FooterLink text="Holiday homes" />
-              <FooterLink text="Hostels" />
+              {footerLinksTextProperty.map((item, index) => {
+                return <FooterLink key={index} text={item} />;
+              })}
             </ul>
           </div>
           <div className={styles.footerItem}>
@@ -53,8 +55,9 @@ export const Footer = () => {
               <li className={styles.footerLinksItem}>
                 <h3 className={styles.footerLinksHeader}>Support</h3>
               </li>
-              <FooterLink text="Contact customer service" />
-              <FooterLink text="FAQ" />
+              {footerLinksTextSupport.map((item, index) => {
+                return <FooterLink key={index} text={item} />;
+              })}
             </ul>
           </div>
         </nav>

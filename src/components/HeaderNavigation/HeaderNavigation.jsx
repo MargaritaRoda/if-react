@@ -13,7 +13,9 @@ import styles from './HeaderNavigation.module.scss';
 
 export const HeaderNavigation = () => {
   const [visibleSignOut, setVisibleSignOut] = useState(false);
-  const { email } = useRegistrationWindowContext();
+  const {
+    user: { email },
+  } = useRegistrationWindowContext();
 
   const handleChangeVisibleSignOut = (event) => {
     if (email) {

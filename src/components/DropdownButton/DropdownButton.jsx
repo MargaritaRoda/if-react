@@ -5,10 +5,9 @@ import { useRegistrationWindowContext } from '../../contexts/RegistrationWindow.
 
 import styles from './DropdownButton.module.scss';
 export const DropdownButton = ({ visible }) => {
-  const { setEmail, setPassword } = useRegistrationWindowContext();
+  const { setUser } = useRegistrationWindowContext();
   const handleChangeSignOut = (event) => {
-    setEmail(() => '');
-    setPassword(() => '');
+    setUser({ email: '', password: '' });
   };
 
   return (

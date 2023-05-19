@@ -1,24 +1,24 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 
 const RegistrationWindowContext = createContext({
-  email: '',
-  setEmail: (newEmail) => {},
-  password: '',
-  setPassword: (newName) => {},
+  user: {
+    email: '',
+    password: '',
+  },
+  setUser: (newUser) => {},
 });
 export const RegistrationWindowContextProvider = ({ children }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
 
   const contextValue = useMemo(() => {
     return {
-      password,
-      setPassword,
-      email,
-      setEmail,
+      user,
+      setUser,
     };
-  }, [password, setPassword, email, setEmail]);
-  console.log(contextValue);
+  }, [user, setUser]);
   return (
     <RegistrationWindowContext.Provider value={contextValue}>
       {children}

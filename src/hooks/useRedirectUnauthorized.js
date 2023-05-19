@@ -4,7 +4,9 @@ import { useRegistrationWindowContext } from '../contexts/RegistrationWindow.con
 
 export const useRedirectUnauthorized = () => {
   const navigate = useNavigate();
-  const { email } = useRegistrationWindowContext();
+  const {
+    user: { email },
+  } = useRegistrationWindowContext();
   useEffect(() => {
     if (!email) {
       navigate('/login');

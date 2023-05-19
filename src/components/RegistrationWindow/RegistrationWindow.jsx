@@ -9,7 +9,7 @@ import { useRegistrationWindowContext } from '../../contexts/RegistrationWindow.
 import styles from './RegistrationWindow.module.scss';
 const RegistrationWindow = ({ emailId, passwordId }) => {
   const navigate = useNavigate();
-  const { setEmail, setPassword } = useRegistrationWindowContext();
+  const { setUser } = useRegistrationWindowContext();
 
   const handleRegistration = (event) => {
     event.preventDefault();
@@ -18,9 +18,7 @@ const RegistrationWindow = ({ emailId, passwordId }) => {
     const data = Object.fromEntries(formData.entries());
 
     const { email, password } = data;
-
-    setEmail((newEmail) => email);
-    setPassword((newPassword) => password);
+    setUser({ email, password });
     navigate('/');
   };
 
