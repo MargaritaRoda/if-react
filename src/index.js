@@ -1,13 +1,19 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+
+import { RegistrationWindowContextProvider } from './contexts/RegistrationWindow.context';
+import { router } from './Routers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RegistrationWindowContextProvider>
+      <RouterProvider router={router} />
+    </RegistrationWindowContextProvider>
   </React.StrictMode>,
 );
 

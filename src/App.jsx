@@ -6,17 +6,23 @@ import kingKongHostelPNG from './assets/images/reviews/kingKongHostel.png';
 import rokokoHotelPNG from './assets/images/reviews/rokokoHotel.png';
 import ubudBaliResortPNG from './assets/images/reviews/ubudBaliResort.png';
 
+import { Outlet } from 'react-router-dom';
+
 import { HomesGuests } from './components/sections/HomesGuests';
 import { Arrow } from './components/Arrow';
 import { AvailableHotels } from './components/sections/AvailableHotels';
 import { TopSection } from './components/TopSection';
+import { Footer } from './components/Footer';
+
 import { AvailableHotelsContextProvider } from './contexts/AvailableHotels.context';
+import { useRedirectUnauthorized } from './hooks/useRedirectUnauthorized';
 
 import './App.scss';
 
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
 function App() {
+  useRedirectUnauthorized();
   return (
     <>
       <AvailableHotelsContextProvider>
@@ -24,6 +30,8 @@ function App() {
 
         <AvailableHotels />
       </AvailableHotelsContextProvider>
+
+      <Outlet />
 
       <section className="container section-benefits">
         <h2 className="section-benefits__title">What do we offer</h2>
@@ -334,77 +342,7 @@ function App() {
           </div>
         </section>
       </div>
-      <footer className="footer">
-        <div className="container footer__container">
-          {/*<div className="footer__logo footer__logo--mobile col-xs-2">*/}
-          {/*  <svg className="footer__logo-icon">*/}
-          {/*    <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />*/}
-          {/*  </svg>*/}
-          {/*</div>*/}
-          <nav className="footer__items col-xs-5">
-            <div className="footer__item">
-              <ul className="footer__links">
-                <li className="footer__links-item">
-                  <h3 className="footer__links-header">About</h3>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">How to Triphouse works</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Careers</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Privacy</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Terms</a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer__item">
-              <ul className="footer__links">
-                <li className="footer__links-item">
-                  <h3 className="footer__links-header">Property types</h3>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Guest houses</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Hotels</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Apartments</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Villas</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Holiday homes</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Hostels</a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer__item">
-              <ul className="footer__links">
-                <li className="footer__links-item">
-                  <h3 className="footer__links-header">Support</h3>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">Contact customer service</a>
-                </li>
-                <li className="footer__links-item footer__links-item--desktop">
-                  <a href="#">FAQ</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div className="footer__copyright col-lg-3 col-xs-5">
-            © 2022 Triphouse, Inc. All rights reserved
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
-export const Icon = ({ className, name }) => {
+export const Icon = ({ className, name, onClick }) => {
   return (
-    <svg className={className}>
+    <svg className={className} onClick={onClick}>
       <use href={`${PUBLIC_PATH}/images/sprite.svg#${name}`} />
     </svg>
   );

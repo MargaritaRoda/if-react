@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { Logo } from '../Logo';
 import { HeaderNavigation } from '../HeaderNavigation';
 import { Icon } from '../../icons/Icon';

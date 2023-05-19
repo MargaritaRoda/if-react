@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_HOTELS_POPULAR_URL, API_HOTELS_URL } from '../config';
+import { HOTELS_DATA } from '../../data';
 
 const cache = new Map();
 
@@ -14,6 +15,7 @@ export const getRequest = (url) => {
 };
 
 export const getPopularHotelsData = async () => {
+  return HOTELS_DATA;
   return getRequest(API_HOTELS_POPULAR_URL);
 };
 
