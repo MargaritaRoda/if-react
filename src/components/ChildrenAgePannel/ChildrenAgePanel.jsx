@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { SelectAges } from './SelectAges';
 import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
@@ -51,4 +52,8 @@ export const ChildrenAgePanel = ({ value }) => {
       </div>
     </div>
   );
+};
+
+ChildrenAgePanel.propTypes = {
+  value: PropTypes.number.isRequired,
 };

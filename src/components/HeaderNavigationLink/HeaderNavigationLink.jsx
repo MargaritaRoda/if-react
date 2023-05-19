@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import styles from './HeaderNavigationLink.module.scss';
-import classNames from 'classnames';
 
 export const HeaderNavigationLink = ({ children, href }) => {
   return (
@@ -15,4 +16,8 @@ export const HeaderNavigationLink = ({ children, href }) => {
       <a href={href}>{children}</a>
     </div>
   );
+};
+
+HeaderNavigationLink.propTypes = {
+  href: PropTypes.string.isRequired,
 };

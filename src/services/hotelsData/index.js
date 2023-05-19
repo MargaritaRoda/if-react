@@ -1,14 +1,16 @@
 import axios from 'axios';
 import { API_HOTELS_POPULAR_URL, API_HOTELS_URL } from '../config';
 
-export const getRequest = async (url, config) => {
-  try {
-    const response = await axios.get(url, config);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    return null;
+const cache = new Map();
+
+export const getRequest = (url) => {
+  if (!cache.has(url)) {
+    cache.set(
+      url,
+      axios.get(url).then((r) => r.data),
+    );
   }
+  return cache.get(url);
 };
 
 export const getPopularHotelsData = async () => {
@@ -24,15 +26,14 @@ export const getHotelsData = async ({
   childrenAges,
   rooms,
 }) => {
-  return getRequest(API_HOTELS_URL, {
-    params: {
-      checkIn,
-      search,
-      checkOut,
-      adults,
-      children,
-      childrenAges,
-      rooms,
-    },
+  const searchPrams = new URLSearchParams({
+    checkIn,
+    search,
+    checkOut,
+    adults,
+    children,
+    childrenAges,
+    rooms,
   });
+  return getRequest(`${API_HOTELS_URL}?${searchPrams.toString()}`);
 };

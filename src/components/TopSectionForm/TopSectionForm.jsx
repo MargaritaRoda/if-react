@@ -4,15 +4,18 @@ import classNames from 'classnames';
 import { Button } from '../Button';
 import { AdultsFormPanel } from '../AdultsFormPanel';
 import { TopSectionFormInput } from '../TopSectionFormInput';
-import { getHotelsData } from '../../services/hotelsData';
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
 
 import { CalendarInput } from './CalendarInput';
 import styles from './TopSectionForm.module.scss';
 
+const scrollToAvailableHotels = (node) => {
+  node?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export const TopSectionForm = () => {
-  const { setItems: setAvailableHotels } = useAvailableHotelsContext();
+  const { setHotelsDataFilter, scrollRef } = useAvailableHotelsContext();
   const { checkInOut, adultsCount, childrenCount, roomsCount, childrenAges } =
     useTopSectionFormContext();
   const [visibilityAdultsFormPanel, setVisibilityAdultsFormPanel] =
@@ -31,7 +34,7 @@ export const TopSectionForm = () => {
       const checkIn = checkInOut?.[0]?.toString();
       const checkOut = checkInOut?.[1]?.toString();
 
-      getHotelsData({
+      setHotelsDataFilter({
         search: placeDestination,
         checkIn,
         checkOut,
@@ -39,17 +42,19 @@ export const TopSectionForm = () => {
         children: childrenCount,
         childrenAges,
         rooms: roomsCount,
-      }).then((hotels) => {
-        setAvailableHotels(hotels);
       });
+      setTimeout(() => {
+        scrollToAvailableHotels(scrollRef.current);
+      }, 100);
     },
     [
       checkInOut,
-      setAvailableHotels,
+      setHotelsDataFilter,
       adultsCount,
       childrenCount,
       roomsCount,
       childrenAges,
+      scrollRef,
     ],
   );
 
