@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
@@ -13,31 +13,51 @@ import styles from './TopSectionForm.module.scss';
 
 export const TopSectionForm = () => {
   const { setItems: setAvailableHotels } = useAvailableHotelsContext();
-  const { checkInOut } = useTopSectionFormContext();
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-
-    const { place } = data;
-    const placeDestination = place.toLowerCase();
-
-    const checkin = checkInOut?.[0]?.toString();
-    const checkOut = checkInOut?.[1]?.toString();
-
-    getHotelsData(placeDestination, checkin, checkOut).then((hotels) => {
-      setAvailableHotels(hotels);
-    });
-  };
-
+  const { checkInOut, adultsCount, childrenCount, roomsCount, childrenAges } =
+    useTopSectionFormContext();
   const [visibilityAdultsFormPanel, setVisibilityAdultsFormPanel] =
     useState(false);
-  const handleAdultsInputsClick = () => {
+
+  const handleFormSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+
+      const { place } = data;
+      const placeDestination = place.toLowerCase();
+
+      const checkIn = checkInOut?.[0]?.toString();
+      const checkOut = checkInOut?.[1]?.toString();
+
+      getHotelsData({
+        search: placeDestination,
+        checkIn,
+        checkOut,
+        adults: adultsCount,
+        children: childrenCount,
+        childrenAges,
+        rooms: roomsCount,
+      }).then((hotels) => {
+        setAvailableHotels(hotels);
+      });
+    },
+    [
+      checkInOut,
+      setAvailableHotels,
+      adultsCount,
+      childrenCount,
+      roomsCount,
+      childrenAges,
+    ],
+  );
+
+  const handleAdultsInputsClick = useCallback(() => {
     setVisibilityAdultsFormPanel((prevState) => {
       return !prevState;
     });
-  };
+  }, [setVisibilityAdultsFormPanel]);
 
   return (
     <form onSubmit={handleFormSubmit} action="/" className={styles.Form}>
@@ -62,7 +82,7 @@ export const TopSectionForm = () => {
         id="adult"
         label="Adults"
         name="adult"
-        value="0 Adults"
+        value={`${adultsCount} Adults`}
         inputClassName={styles.inputAdults}
         onClick={handleAdultsInputsClick}
         readOnly
@@ -75,7 +95,7 @@ export const TopSectionForm = () => {
         id="child"
         label="Children"
         name="child"
-        value="0 Children"
+        value={`${childrenCount} Children`}
         inputClassName={styles.inputChildren}
         onClick={handleAdultsInputsClick}
         readOnly
@@ -85,7 +105,7 @@ export const TopSectionForm = () => {
         id="room"
         label="Rooms"
         name="room"
-        value="0 room"
+        value={`${roomsCount} Rooms`}
         inputClassName={styles.inputRooms}
         onClick={handleAdultsInputsClick}
         readOnly

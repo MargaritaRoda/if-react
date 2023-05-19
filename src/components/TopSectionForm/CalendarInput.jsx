@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import classNames from 'classnames';
 
 import { TopSectionFormInput } from '../TopSectionFormInput';
@@ -12,20 +12,23 @@ export const CalendarInput = () => {
   const [visibilityFormPanel, setVisibilityFormPanel] = useState(false);
   const { checkInOut } = useTopSectionFormContext();
 
-  const handleInputClick = () => {
+  const handleInputClick = useCallback(() => {
     setVisibilityFormPanel((prevState) => {
       return !prevState;
     });
-  };
+  }, [setVisibilityFormPanel]);
 
   const [checkIn, checkOut] = checkInOut;
 
-  const checkInText = checkIn
-    ? `${checkIn.day} ${checkIn.month.shortName}`
-    : 'Check-in';
-  const checkOutText = checkOut
-    ? `${checkOut.day} ${checkOut.month.shortName}`
-    : 'Check-out';
+  const checkInText = useMemo(() => {
+    return checkIn ? `${checkIn.day} ${checkIn.month.shortName}` : 'Check-in';
+  }, [checkIn]);
+
+  const checkOutText = useMemo(() => {
+    return checkOut
+      ? `${checkOut.day} ${checkOut.month.shortName}`
+      : 'Check-out';
+  }, [checkOut]);
 
   return (
     <>
