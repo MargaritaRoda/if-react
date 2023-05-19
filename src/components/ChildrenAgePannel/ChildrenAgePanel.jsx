@@ -27,7 +27,13 @@ export const ChildrenAgePanel = ({ value }) => {
       });
     }
   }, [childrenAges, setChildrenAges, value]);
-
+  const handleChangeChildrenAges = (index, e) => {
+    setChildrenAges((prevChildrenAges) => {
+      const childrenAges = [...prevChildrenAges];
+      childrenAges[index] = e.target.value;
+      return childrenAges;
+    });
+  };
   return (
     <div hidden={value === 0}>
       <p className={styles.childrenAgeInfo}>
@@ -35,19 +41,11 @@ export const ChildrenAgePanel = ({ value }) => {
       </p>
       <div className={styles.childrenContainer}>
         {[...Array(value)].map((item, index) => {
-          const handleChangeChildrenAges = (e) => {
-            setChildrenAges((prevChildrenAges) => {
-              const childrenAges = [...prevChildrenAges];
-              childrenAges[index] = e.target.value;
-              return childrenAges;
-            });
-          };
-
           return (
             <SelectAges
               key={index}
               value={childrenAges[index]}
-              onChange={handleChangeChildrenAges}
+              onChange={handleChangeChildrenAges.bind(null, index)}
             />
           );
         })}
