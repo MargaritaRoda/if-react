@@ -14,7 +14,7 @@ import { AvailableHotels } from './components/sections/AvailableHotels';
 import { TopSection } from './components/TopSection';
 import { Footer } from './components/Footer';
 
-import { AvailableHotelsContextProvider } from './contexts/AvailableHotels.context';
+import { AvailableHotelsScrollContextProvider } from './contexts/AvailableHotelsScroll.context';
 import { useRedirectUnauthorized } from './hooks/useRedirectUnauthorized';
 
 import './App.scss';
@@ -25,11 +25,11 @@ function App() {
   useRedirectUnauthorized();
   return (
     <>
-      <AvailableHotelsContextProvider>
+      <AvailableHotelsScrollContextProvider>
         <TopSection />
 
         <AvailableHotels />
-      </AvailableHotelsContextProvider>
+      </AvailableHotelsScrollContextProvider>
 
       <Outlet />
 

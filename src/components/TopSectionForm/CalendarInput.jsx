@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import { TopSectionFormInput } from '../TopSectionFormInput';
 import { CalendarFormPanel } from '../CalendarFormPanel';
 
-import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
-
 import styles from './TopSectionForm.module.scss';
+import { useSelector } from 'react-redux';
+import { selectCheckInOut } from '../../store/selectors/topSectionForm.selectors';
 
 export const CalendarInput = memo(() => {
   const [visibilityFormPanel, setVisibilityFormPanel] = useState(false);
-  const { checkInOut } = useTopSectionFormContext();
+  const checkInOut = useSelector(selectCheckInOut);
 
   const handleInputClick = useCallback(() => {
     setVisibilityFormPanel((prevState) => {

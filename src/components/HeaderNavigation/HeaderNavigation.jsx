@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { HeaderNavigationLink } from '../HeaderNavigationLink';
@@ -7,18 +8,16 @@ import { HeaderNavIcon } from '../HeaderNavIcon';
 import { Icon } from '../../icons/Icon';
 import { DropdownButton } from '../DropdownButton';
 
-import { useRegistrationWindowContext } from '../../contexts/RegistrationWindow.context';
+import { selectIsUserAuthorized } from '../../store/selectors/user.selectors';
 
 import styles from './HeaderNavigation.module.scss';
 
 export const HeaderNavigation = () => {
   const [visibleSignOut, setVisibleSignOut] = useState(false);
-  const {
-    user: { email },
-  } = useRegistrationWindowContext();
+  const isUserAuthorized = useSelector(selectIsUserAuthorized);
 
   const handleChangeVisibleSignOut = (event) => {
-    if (email) {
+    if (isUserAuthorized) {
       setVisibleSignOut((prevState) => !prevState);
     }
   };

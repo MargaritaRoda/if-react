@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Container } from '../Container';
 import { Header } from '../Header';
-import { TopSectionFormContextProvider } from '../../contexts/TopSectionForm.context';
 import { TopSectionForm } from '../TopSectionForm';
 import { GoogleIcon } from '../../icons/GoogleIcon/GoogleIcon';
 import { Icon } from '../../icons/Icon';
@@ -21,10 +20,7 @@ export const TopSection = () => {
             <br />
             to live, work or just relax
           </h1>
-
-          <TopSectionFormContextProvider>
-            <TopSectionForm />
-          </TopSectionFormContextProvider>
+          <TopSectionForm />
         </div>
         <div className={styles.topSectionsIcons}>
           <div className={styles.topSectionGoogle}>

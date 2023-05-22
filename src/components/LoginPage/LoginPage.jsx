@@ -6,7 +6,10 @@ import { Container } from '../Container';
 import { RegistrationWindow } from '../RegistrationWindow';
 
 import styles from './LoginPage.module.scss';
+import { useRedirectAuthorized } from '../../hooks/useRedirectUnauthorized';
 export const LoginPage = () => {
+  useRedirectAuthorized();
+
   return (
     <>
       <div className={styles.topSection}>

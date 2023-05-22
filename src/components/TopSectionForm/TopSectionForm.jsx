@@ -1,25 +1,40 @@
 import { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
 import { AdultsFormPanel } from '../AdultsFormPanel';
 import { TopSectionFormInput } from '../TopSectionFormInput';
-import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
-import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
+import { useAvailableHotelsScrollContext } from '../../contexts/AvailableHotelsScroll.context';
 
 import { CalendarInput } from './CalendarInput';
 import styles from './TopSectionForm.module.scss';
+import { setFilter } from '../../store/actions/availableHotelsFilter.actions';
+import {
+  selectAdults,
+  selectCheckInOut,
+  selectChildren,
+  selectChildrenAges,
+  selectRooms,
+} from '../../store/selectors/topSectionForm.selectors';
 
 const scrollToAvailableHotels = (node) => {
   node?.scrollIntoView({ behavior: 'smooth' });
 };
 
 export const TopSectionForm = () => {
-  const { setHotelsDataFilter, scrollRef } = useAvailableHotelsContext();
-  const { checkInOut, adultsCount, childrenCount, roomsCount, childrenAges } =
-    useTopSectionFormContext();
+  const scrollRef = useAvailableHotelsScrollContext();
+
+  const checkInOut = useSelector(selectCheckInOut);
+  const adultsCount = useSelector(selectAdults);
+  const childrenCount = useSelector(selectChildren);
+  const roomsCount = useSelector(selectRooms);
+  const childrenAges = useSelector(selectChildrenAges);
+
   const [visibilityAdultsFormPanel, setVisibilityAdultsFormPanel] =
     useState(false);
+
+  const dispatch = useDispatch();
 
   const handleFormSubmit = useCallback(
     (event) => {
@@ -34,22 +49,25 @@ export const TopSectionForm = () => {
       const checkIn = checkInOut?.[0]?.toString();
       const checkOut = checkInOut?.[1]?.toString();
 
-      setHotelsDataFilter({
-        search: placeDestination,
-        checkIn,
-        checkOut,
-        adults: adultsCount,
-        children: childrenCount,
-        childrenAges,
-        rooms: roomsCount,
-      });
+      dispatch(
+        setFilter({
+          search: placeDestination,
+          checkIn,
+          checkOut,
+          adults: adultsCount,
+          children: childrenCount,
+          childrenAges,
+          rooms: roomsCount,
+        }),
+      );
+
       setTimeout(() => {
         scrollToAvailableHotels(scrollRef.current);
       }, 100);
     },
     [
       checkInOut,
-      setHotelsDataFilter,
+      dispatch,
       adultsCount,
       childrenCount,
       roomsCount,

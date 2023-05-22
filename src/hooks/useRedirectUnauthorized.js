@@ -1,15 +1,26 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRegistrationWindowContext } from '../contexts/RegistrationWindow.context';
+import { useSelector } from 'react-redux';
+import { selectIsUserAuthorized } from '../store/selectors/user.selectors';
 
 export const useRedirectUnauthorized = () => {
   const navigate = useNavigate();
-  const {
-    user: { email },
-  } = useRegistrationWindowContext();
+  const isUserAuthorized = useSelector(selectIsUserAuthorized);
+
   useEffect(() => {
-    if (!email) {
+    if (!isUserAuthorized) {
       navigate('/login');
     }
-  }, [email, navigate]);
+  }, [isUserAuthorized, navigate]);
+};
+
+export const useRedirectAuthorized = () => {
+  const navigate = useNavigate();
+  const isUserAuthorized = useSelector(selectIsUserAuthorized);
+
+  useEffect(() => {
+    if (isUserAuthorized) {
+      navigate('/');
+    }
+  }, [isUserAuthorized, navigate]);
 };

@@ -1,19 +1,21 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
+import { store } from './store';
 
-import { RegistrationWindowContextProvider } from './contexts/RegistrationWindow.context';
 import { router } from './Routers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RegistrationWindowContextProvider>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </RegistrationWindowContextProvider>
+    </Provider>
   </React.StrictMode>,
 );
 
