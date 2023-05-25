@@ -6,11 +6,7 @@ import { ChildrenAgePanel } from '../ChildrenAgePannel';
 
 import styles from './AdultsFormPanel.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectAdults,
-  selectChildren,
-  selectRooms,
-} from '../../store/selectors/topSectionForm.selectors';
+import { selectTopSectionForm } from '../../store/selectors/topSectionForm.selectors';
 import {
   setAdults,
   setChildren,
@@ -18,9 +14,12 @@ import {
 } from '../../store/actions/topSectionForm.actions';
 
 export const AdultsFormPanel = memo(({ visible }) => {
-  const adultsCount = useSelector(selectAdults);
-  const childrenCount = useSelector(selectChildren);
-  const roomsCount = useSelector(selectRooms);
+  const {
+    adults: adultsCount,
+    children: childrenCount,
+    rooms: roomsCount,
+  } = useSelector(selectTopSectionForm);
+
   const dispatch = useDispatch();
 
   const handleChangeAdultsCount = (value) => {

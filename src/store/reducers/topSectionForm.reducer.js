@@ -6,6 +6,19 @@ const INITIAL_STATE = {
   childrenAges: [],
 };
 
+const prepareChildrenAgesArray = (children, childrenAges) => {
+  let newChildrenAges = childrenAges;
+  if (children > childrenAges.length) {
+    newChildrenAges = [...newChildrenAges];
+    for (let i = childrenAges.length; i < children; i += 1) {
+      newChildrenAges.push(0);
+    }
+  } else if (children < childrenAges.length) {
+    newChildrenAges = [...newChildrenAges];
+    newChildrenAges.splice(children);
+  }
+  return newChildrenAges;
+};
 export const topSectionFormReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'topSectionForm/setAdults': {
@@ -21,23 +34,14 @@ export const topSectionFormReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case 'topSectionForm/setChildren': {
-      const newState = {
+      return {
         ...state,
         children: action.payload,
+        childrenAges: prepareChildrenAgesArray(
+          action.payload,
+          state.childrenAges,
+        ),
       };
-
-      if (newState.children > state.childrenAges.length) {
-        const newChildrenAges = [...newState.childrenAges];
-        for (let i = state.childrenAges.length; i < newState.children; i += 1) {
-          newChildrenAges.push(0);
-        }
-        newState.childrenAges = newChildrenAges;
-      } else if (newState.children < state.childrenAges.length) {
-        const newChildrenAges = [...newState.childrenAges];
-        newChildrenAges.splice(newState.children);
-        newState.childrenAges = newChildrenAges;
-      }
-      return newState;
     }
     case 'topSectionForm/setChildrenAge': {
       const newChildrenAges = [...state.childrenAges];

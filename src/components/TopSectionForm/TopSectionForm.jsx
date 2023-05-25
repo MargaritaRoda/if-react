@@ -10,13 +10,7 @@ import { useAvailableHotelsScrollContext } from '../../contexts/AvailableHotelsS
 import { CalendarInput } from './CalendarInput';
 import styles from './TopSectionForm.module.scss';
 import { setFilter } from '../../store/actions/availableHotelsFilter.actions';
-import {
-  selectAdults,
-  selectCheckInOut,
-  selectChildren,
-  selectChildrenAges,
-  selectRooms,
-} from '../../store/selectors/topSectionForm.selectors';
+import { selectTopSectionForm } from '../../store/selectors/topSectionForm.selectors';
 
 const scrollToAvailableHotels = (node) => {
   node?.scrollIntoView({ behavior: 'smooth' });
@@ -25,11 +19,13 @@ const scrollToAvailableHotels = (node) => {
 export const TopSectionForm = () => {
   const scrollRef = useAvailableHotelsScrollContext();
 
-  const checkInOut = useSelector(selectCheckInOut);
-  const adultsCount = useSelector(selectAdults);
-  const childrenCount = useSelector(selectChildren);
-  const roomsCount = useSelector(selectRooms);
-  const childrenAges = useSelector(selectChildrenAges);
+  const {
+    adults: adultsCount,
+    children: childrenCount,
+    rooms: roomsCount,
+    checkInOut,
+    childrenAges,
+  } = useSelector(selectTopSectionForm);
 
   const [visibilityAdultsFormPanel, setVisibilityAdultsFormPanel] =
     useState(false);

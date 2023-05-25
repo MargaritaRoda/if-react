@@ -21,13 +21,11 @@ export const CalendarInput = memo(() => {
   const [checkIn, checkOut] = checkInOut;
 
   const checkInText = useMemo(() => {
-    return checkIn ? `${checkIn.day} ${checkIn.month.shortName}` : 'Check-in';
+    return checkIn ? checkIn : 'Check-in';
   }, [checkIn]);
 
   const checkOutText = useMemo(() => {
-    return checkOut
-      ? `${checkOut.day} ${checkOut.month.shortName}`
-      : 'Check-out';
+    return checkOut ? checkOut : 'Check-out';
   }, [checkOut]);
 
   return (

@@ -13,7 +13,9 @@ export const CalendarFormPanel = ({ visible }) => {
   const dispatch = useDispatch();
 
   const setValues = (valueCalendar) => {
-    dispatch(setCheckInOut(valueCalendar));
+    const newValueCalendar = valueCalendar.map((item) => item.toString());
+
+    dispatch(setCheckInOut(newValueCalendar));
   };
   const day = new Date();
   return (
