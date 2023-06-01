@@ -1,16 +1,21 @@
 import React from 'react';
 import { Calendar } from 'react-multi-date-picker';
 import { FormPanel } from '../FormPanel';
-import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
 
 import styles from './CalendarFormPanel.module.scss';
 import './Calendar.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCheckInOut } from '../../store/selectors/topSectionForm.selectors';
+import { setCheckInOut } from '../../store/actions/topSectionForm.actions';
 
 export const CalendarFormPanel = ({ visible }) => {
-  const { checkInOut, setCheckInOut } = useTopSectionFormContext();
+  const checkInOut = useSelector(selectCheckInOut);
+  const dispatch = useDispatch();
 
   const setValues = (valueCalendar) => {
-    setCheckInOut(valueCalendar);
+    const newValueCalendar = valueCalendar.map((item) => item.toString());
+
+    dispatch(setCheckInOut(newValueCalendar));
   };
   const day = new Date();
   return (

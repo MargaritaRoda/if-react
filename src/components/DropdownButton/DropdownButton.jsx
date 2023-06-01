@@ -1,13 +1,15 @@
 import React from 'react';
-
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import { useRegistrationWindowContext } from '../../contexts/RegistrationWindow.context';
+
+import { logout } from '../../store/actions/user.actions';
 
 import styles from './DropdownButton.module.scss';
 export const DropdownButton = ({ visible }) => {
-  const { setUser } = useRegistrationWindowContext();
+  const dispatch = useDispatch();
+
   const handleChangeSignOut = (event) => {
-    setUser({ email: '', password: '' });
+    dispatch(logout());
   };
 
   return (

@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import { TopSectionFormInput } from '../TopSectionFormInput';
 import { CalendarFormPanel } from '../CalendarFormPanel';
 
-import { useTopSectionFormContext } from '../../contexts/TopSectionForm.context';
-
 import styles from './TopSectionForm.module.scss';
+import { useSelector } from 'react-redux';
+import { selectCheckInOut } from '../../store/selectors/topSectionForm.selectors';
 
 export const CalendarInput = memo(() => {
   const [visibilityFormPanel, setVisibilityFormPanel] = useState(false);
-  const { checkInOut } = useTopSectionFormContext();
+  const checkInOut = useSelector(selectCheckInOut);
 
   const handleInputClick = useCallback(() => {
     setVisibilityFormPanel((prevState) => {
@@ -21,13 +21,11 @@ export const CalendarInput = memo(() => {
   const [checkIn, checkOut] = checkInOut;
 
   const checkInText = useMemo(() => {
-    return checkIn ? `${checkIn.day} ${checkIn.month.shortName}` : 'Check-in';
+    return checkIn ? checkIn : 'Check-in';
   }, [checkIn]);
 
   const checkOutText = useMemo(() => {
-    return checkOut
-      ? `${checkOut.day} ${checkOut.month.shortName}`
-      : 'Check-out';
+    return checkOut ? checkOut : 'Check-out';
   }, [checkOut]);
 
   return (

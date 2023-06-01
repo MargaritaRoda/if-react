@@ -1,15 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './AvailableHotels.module.scss';
 
 import { Container } from '../../Container';
 import { Title } from '../../Title';
 import { HotelsList } from '../../HotelsList';
 
-import { useAvailableHotelsContext } from '../../../contexts/AvailableHotels.context';
+import { useAvailableHotelsScrollContext } from '../../../contexts/AvailableHotelsScroll.context';
 import { getHotelsData } from '../../../services/hotelsData';
+import { selectAvailableHotelsFilter } from '../../../store/selectors/availableHotelsFilter.selectors';
 
 export const AvailableHotels = () => {
-  const { hotelsDataFilter, scrollRef } = useAvailableHotelsContext();
+  const scrollRef = useAvailableHotelsScrollContext();
+  const hotelsDataFilter = useSelector(selectAvailableHotelsFilter);
+
   const itemsPromise = hotelsDataFilter
     ? getHotelsData(hotelsDataFilter)
     : null;

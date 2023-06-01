@@ -1,15 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import { Form, useNavigate } from 'react-router-dom';
-import { useRegistrationWindowContext } from '../../contexts/RegistrationWindow.context';
 
 import styles from './RegistrationWindow.module.scss';
+import { login } from '../../store/actions/user.actions';
 const RegistrationWindow = ({ emailId, passwordId }) => {
   const navigate = useNavigate();
-  const { setUser } = useRegistrationWindowContext();
+  const dispatch = useDispatch();
 
   const handleRegistration = (event) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ const RegistrationWindow = ({ emailId, passwordId }) => {
     const data = Object.fromEntries(formData.entries());
 
     const { email, password } = data;
-    setUser({ email, password });
+    dispatch(login({ email, password }));
     navigate('/');
   };
 
