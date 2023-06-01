@@ -1,0 +1,121 @@
+.registrationContainer {
+  background-color: #eaf0f9;
+  padding: 24px;
+  position: relative;
+  width: 100%;
+  @media (max-width: 360px) {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    gap: 16px;
+  }
+}
+
+.registrationWrapperDesktop {
+  display: flex;
+  gap: 21px;
+  flex-direction: column;
+  margin: 27px 110px;
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
+
+.registrationTitle {
+  font-size: 24px;
+  color: #383838;
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
+
+.registrationButton {
+  width: 128px;
+  height: 48px;
+  font-size: 18px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background-color: #ffffff;
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
+
+.registrationIcon {
+  display: flex;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
+
+.registrationIconImg {
+  width: 50px;
+  height: 45px;
+  margin: auto auto;
+}
+
+.registrationCloseWnd {
+  display: block;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 15%;
+  left: 95%;
+  @media (max-width: 600px) {
+    width: 16px;
+    height: 16px;
+    top: 10%;
+    left: 90%;
+  }
+  @media (max-width: 360px) {
+    position: unset;
+  }
+}
+
+.registrationLogo {
+  display: none;
+  height: 58px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  @media (max-width: 360px) {
+    display: flex;
+  }
+}
+.registrationLogoIcon {
+  @media (max-width: 360px) {
+    fill: #ffffff;
+    width: 52px;
+    padding: 3px;
+  }
+}
+
+.registrationTitleMobile {
+  display: none;
+  font-size: 12px;
+  font-weight: 400;
+  @media (max-width: 360px) {
+    display: block;
+  }
+}
+
+.registrationInstall {
+  display: none;
+  @media (max-width: 360px) {
+    display: block;
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+}

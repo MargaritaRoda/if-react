@@ -459,7 +459,7 @@ h6 {
 }
 
 @media (max-width: 360px) {
-  /* For mobile phones: */
+  /*For mobile phones: */
   .container {
     max-width: 360px;
     padding: 24px 8px 40px;

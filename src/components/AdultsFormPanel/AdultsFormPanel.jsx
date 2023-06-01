@@ -11,7 +11,7 @@ import {
   setAdults,
   setChildren,
   setRooms,
-} from '../../store/actions/topSectionForm.actions';
+} from '../../store/slicers/topSectionForm.slicer';
 
 export const AdultsFormPanel = memo(({ visible }) => {
   const {

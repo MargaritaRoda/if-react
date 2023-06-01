@@ -18,6 +18,8 @@ import { AvailableHotelsScrollContextProvider } from './contexts/AvailableHotels
 import { useRedirectUnauthorized } from './hooks/useRedirectUnauthorized';
 
 import './App.scss';
+import { Benefits } from './components/Benefits';
+import { RegistrationSection } from './RegistrationSection';
 
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
@@ -33,36 +35,8 @@ function App() {
 
       <Outlet />
 
-      <section className="container section-benefits">
-        <h2 className="section-benefits__title">What do we offer</h2>
-        <div className="section-benefits__items">
-          <div className="section-benefits__item col-lg-3 col-md-6 col-xs-4">
-            <svg className="section-benefits__icon section-benefits__icon--sup">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#support`} />
-            </svg>
-            <p>Support 24/7</p>
-          </div>
-          <div className="section-benefits__item col-lg-3 col-md-6 col-xs-4">
-            <svg className="section-benefits__icon section-benefits__icon--message">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#message`} />
-            </svg>
-            <p>Communicate directly</p>
-          </div>
-          <div className="section-benefits__item col-lg-3 col-md-6 col-xs-4">
-            <svg className="section-benefits__icon section-benefits__icon--book">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#book`} />
-            </svg>
+      <Benefits />
 
-            <p>Book online</p>
-          </div>
-          <div className="section-benefits__item col-lg-3 col-md-6 col-xs-4">
-            <svg className="section-benefits__icon section-benefits__icon--like">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#like`} />
-            </svg>
-            <p>Real guest review</p>
-          </div>
-        </div>
-      </section>
       <HomesGuests />
 
       <section className="best-dest">
@@ -156,35 +130,8 @@ function App() {
         </div>
       </section>
       <div className="section__wrapper-items">
-        <section className="container registration__container">
-          <div className="registration__wrapper-desktop">
-            <h3 className="registration_title">
-              Sign up and get 20% off your first booking
-            </h3>
-            <button className="registration__button">Sign up</button>
-          </div>
+        <RegistrationSection />
 
-          <div className="registration__icon">
-            <svg className="registration__icon-img">
-              <use
-                href={`${PUBLIC_PATH}/images/sprite.svg#registration_logo`}
-              />
-            </svg>
-          </div>
-
-          <svg className="registration__close-wnd">
-            <use href={`${PUBLIC_PATH}/images/sprite.svg#close-wnd`} />
-          </svg>
-          <div className="registration__logo registration__logo--mobile">
-            <svg className="registration__logo-icon">
-              <use href={`${PUBLIC_PATH}/images/sprite.svg#logo`} />
-            </svg>
-          </div>
-          <h5 className="registration__title-mobile">
-            Sign up in the app and get 20% off your first booking
-          </h5>
-          <h5 className="registration__install">Install</h5>
-        </section>
         <section className="reviews">
           <div className="container reviews__container">
             <h2 className="reviews__title">Reviews</h2>

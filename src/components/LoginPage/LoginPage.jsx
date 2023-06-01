@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Header } from '../Header';
 import { Footer } from '../Footer';
@@ -15,7 +15,9 @@ export const LoginPage = () => {
       <div className={styles.topSection}>
         <Container>
           <Header />
-          <RegistrationWindow />
+          <Suspense>
+            <RegistrationWindow />
+          </Suspense>
         </Container>
       </div>
       <Footer />

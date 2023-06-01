@@ -1,14 +1,26 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import { HotelCard } from '../HotelCard';
 import { Arrow } from '../Arrow';
 import { Loading } from '../Loading';
-import { wrapPromise } from '../../lib/wrapPromise';
 
 import styles from './HotelsList.module.scss';
 
-export const InnerHotelsList = ({ itemsPromise }) => {
-  const items = wrapPromise(itemsPromise);
+export const HotelsList = ({ items, isLoading }) => {
+  if (isLoading) {
+    return (
+      <div className={styles.slider}>
+        <Loading className={styles.loading} />
+      </div>
+    );
+  }
+  if (items.length === 0) {
+    return (
+      <div className={styles.slider}>
+        <p className={styles.emptyText}>Hotels not Found</p>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.slider}>
@@ -22,13 +34,6 @@ export const InnerHotelsList = ({ itemsPromise }) => {
   );
 };
 
-export const HotelsList = ({ itemsPromise }) => {
-  if (!itemsPromise) {
-    return null;
-  }
-  return (
-    <Suspense fallback={<Loading />}>
-      <InnerHotelsList itemsPromise={itemsPromise} />
-    </Suspense>
-  );
+HotelsList.defaultProps = {
+  items: [],
 };

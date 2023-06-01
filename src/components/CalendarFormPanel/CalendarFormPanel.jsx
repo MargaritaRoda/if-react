@@ -6,7 +6,7 @@ import styles from './CalendarFormPanel.module.scss';
 import './Calendar.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCheckInOut } from '../../store/selectors/topSectionForm.selectors';
-import { setCheckInOut } from '../../store/actions/topSectionForm.actions';
+import { setCheckInOut } from '../../store/slicers/topSectionForm.slicer';
 
 export const CalendarFormPanel = ({ visible }) => {
   const checkInOut = useSelector(selectCheckInOut);

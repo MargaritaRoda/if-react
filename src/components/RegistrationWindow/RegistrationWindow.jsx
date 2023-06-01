@@ -7,7 +7,7 @@ import { Button } from '../Button';
 import { Form, useNavigate } from 'react-router-dom';
 
 import styles from './RegistrationWindow.module.scss';
-import { login } from '../../store/actions/user.actions';
+import { login } from '../../store/slicers/user.slicer';
 const RegistrationWindow = ({ emailId, passwordId }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
