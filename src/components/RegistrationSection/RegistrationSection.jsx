@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './RegistrationSection.module.scss';
-import { Container } from '../components/Container';
-import { Icon } from '../icons/Icon';
+import { Container } from '../Container';
+import { Icon } from '../../icons/Icon';
 
 export const RegistrationSection = () => {
   return (

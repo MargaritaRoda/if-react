@@ -31,10 +31,7 @@ export const CalendarInput = memo(() => {
   return (
     <>
       <TopSectionFormInput
-        className={classNames(
-          styles.formRowCalendar,
-          styles.formRowCalendarInOut,
-        )}
+        className={classNames(styles.formRowCalendar)}
         label="Check-in Check-out"
         name="checkInOut"
         value={`${checkInText} - ${checkOutText}`}

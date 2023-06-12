@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { HeaderNavigationLink } from '../HeaderNavigationLink';
@@ -11,12 +11,19 @@ import { DropdownButton } from '../DropdownButton';
 import { selectIsUserAuthorized } from '../../store/selectors/user.selectors';
 
 import styles from './HeaderNavigation.module.scss';
+import { toggleTheme } from '../../store/slicers/theme.slicer';
 
 export const HeaderNavigation = () => {
   const [visibleSignOut, setVisibleSignOut] = useState(false);
   const isUserAuthorized = useSelector(selectIsUserAuthorized);
+  const dispatch = useDispatch();
 
-  const handleChangeVisibleSignOut = (event) => {
+  const handleChangeTheme = useCallback(() => {
+    const action = toggleTheme();
+    dispatch(action);
+  }, [dispatch]);
+
+  const handleChangeVisibleSignOut = () => {
     if (isUserAuthorized) {
       setVisibleSignOut((prevState) => !prevState);
     }
@@ -28,7 +35,11 @@ export const HeaderNavigation = () => {
       <HeaderNavigationLink href="#">Attractions</HeaderNavigationLink>
 
       <HeaderNavIcon>
-        <Icon className={styles.headerNavItemIconNight} name="night" />
+        <Icon
+          className={styles.headerNavItemIconNight}
+          name="night"
+          onClick={handleChangeTheme}
+        />
       </HeaderNavIcon>
 
       <HeaderNavIcon>

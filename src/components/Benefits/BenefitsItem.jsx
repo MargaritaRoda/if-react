@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './Benefits.module.scss';
 import { Icon } from '../../icons/Icon';
 import classNames from 'classnames';
+import { useStyles } from './BenefitsItem.styles';
 
 export const BenefitsItem = ({ text, name, className }) => {
+  const classes = useStyles();
   return (
-    <div className={styles.item}>
+    <div className={classes.item}>
       <Icon name={name} className={classNames(className)} />
       <p>{text}</p>
     </div>

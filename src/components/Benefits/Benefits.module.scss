@@ -34,31 +34,6 @@
   }
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  text-align: center;
-  gap: 48px;
-  font-size: 24px;
-  flex-basis: 50%;
-  @media (max-width: 1439px) {
-    margin-bottom: 24px;
-    gap: 24px;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-    flex-basis: 100%;
-  }
-  @media (max-width: 360px) {
-    font-size: 15px;
-    gap: 16px;
-    margin: 0 auto 32px;
-    flex-basis: 100%;
-  }
-}
-
 .iconMessage {
   width: 100%;
   max-width: 84px;

@@ -1,17 +1,17 @@
 import React from 'react';
-import { Logo } from '../Logo';
-import { HeaderNavigation } from '../HeaderNavigation';
-import { Icon } from '../../icons/Icon';
 
-import styles from './Header.module.scss';
+import { HeaderMenu } from '../HeaderMenu';
+import { Container } from '../Container';
+import { useStyles } from './Header.styles';
 
-export const Header = () => {
+export const Header = ({ children }) => {
+  const classes = useStyles();
   return (
-    <header className={styles.header}>
-      <Logo>
-        <Icon className={styles.logoIcon} name="logo" />
-      </Logo>
-      <HeaderNavigation />
-    </header>
+    <div className={classes.root}>
+      <Container>
+        <HeaderMenu />
+        {children}
+      </Container>
+    </div>
   );
 };

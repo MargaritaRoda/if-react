@@ -4,9 +4,9 @@ import {
   Outlet,
   Route,
 } from 'react-router-dom';
-import App from '../App';
-import { HotelPage } from '../components/HotelPage';
-import { LoginPage } from '../components/LoginPage';
+import { IndexPage } from '../pages/IndexPage';
+import { HotelPage } from '../pages/HotelPage';
+import { LoginPage } from '../pages/LoginPage';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,7 +14,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Outlet />}>
         <Route path="hotels/:id" element={<HotelPage />} />
         <Route path="login" element={<LoginPage />} />
-        <Route path="" element={<App />} />
+        <Route path="" element={<IndexPage />} />
       </Route>
     </>,
   ),
