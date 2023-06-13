@@ -14,7 +14,7 @@ export const HotelsList = ({ items, isLoading }) => {
       </div>
     );
   }
-  if (items.length === 0) {
+  if (!items.length) {
     return (
       <div className={styles.slider}>
         <p className={styles.emptyText}>Hotels not Found</p>

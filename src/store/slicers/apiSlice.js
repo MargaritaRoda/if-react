@@ -35,7 +35,4 @@ export const apiSlice = createApi({
   }),
 });
 
-console.log(apiSlice);
-
 export const { useGetHotelsQuery, useGetHotelsPopularQuery } = apiSlice;
-console.log();

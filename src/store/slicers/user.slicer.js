@@ -8,12 +8,7 @@ const user = createSlice({
   name: 'user',
   initialState: INITIAL_STATE,
   reducers: {
-    login: (state, { payload: { email, password } }) => {
-      return {
-        email: email,
-        password: password,
-      };
-    },
+    login: (state, { payload }) => payload,
     logout: () => INITIAL_STATE,
   },
 });
