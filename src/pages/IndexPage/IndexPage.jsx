@@ -6,8 +6,6 @@ import kingKongHostelPNG from '../../assets/images/reviews/kingKongHostel.png';
 import rokokoHotelPNG from '../../assets/images/reviews/rokokoHotel.png';
 import ubudBaliResortPNG from '../../assets/images/reviews/ubudBaliResort.png';
 
-import { Outlet } from 'react-router-dom';
-
 import { HomesGuests } from '../../components/sections/HomesGuests';
 import { Arrow } from '../../components/Arrow';
 import { AvailableHotels } from '../../components/sections/AvailableHotels';
@@ -22,6 +20,7 @@ import { RegistrationSection } from '../../components/RegistrationSection';
 
 import { Main } from '../../components/Main';
 import { Header } from '../../components/Header';
+
 const PUBLIC_PATH = process.env.PUBLIC_URL;
 
 export function IndexPage() {
@@ -35,7 +34,6 @@ export function IndexPage() {
         <AvailableHotels />
       </AvailableHotelsScrollContextProvider>
       <Main>
-        <Outlet />
         <Benefits />
         <HomesGuests />
 
@@ -229,11 +227,11 @@ export function IndexPage() {
 
                     <div className="reviews__person-review">
                       <p>
-                        I've been in this hostel for a month and here is the
-                        best hostel of all Excellent management of excellent and
-                        ethical staff and bedrooms Bathrooms are always clean
-                        and excellent Most importantly, those who work here are
-                        kind and good-natured.
+                        I&apos;ve been in this hostel for a month and here is
+                        the best hostel of all Excellent management of excellent
+                        and ethical staff and bedrooms Bathrooms are always
+                        clean and excellent Most importantly, those who work
+                        here are kind and good-natured.
                       </p>
                     </div>
                   </article>

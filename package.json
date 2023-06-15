@@ -15,28 +15,35 @@
     "react-multi-date-picker": "^4.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
-    "react-scripts": "5.0.1",
     "redux": "^4.2.1",
-    "redux-persist": "^6.0.0",
-    "web-vitals": "^2.1.4"
+    "redux-persist": "^6.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
     "prepare": "husky install",
     "lint": "prettier --write . && eslint src/**/*.js --fix"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest",
+      "eslint:recommended",
+      "plugin:react/recommended",
       "prettier",
       "plugin:react-hooks/recommended"
     ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parser": "@babel/eslint-parser",
     "rules": {
-      "jsx-a11y/anchor-is-valid": 0
+      "jsx-a11y/anchor-is-valid": 0,
+      "react/react-in-jsx-scope": 0
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
   },
   "lint-staged": {
@@ -55,13 +62,30 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
+    "mini-css-extract-plugin": "^2.7.6",
     "prettier": "2.8.7",
     "prop-types": "^15.8.1",
-    "sass": "^1.61.0",
-    "serve": "^14.2.0"
+    "sass": "^1.63.3",
+    "sass-loader": "^13.3.2",
+    "serve": "^14.2.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.86.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
   }
 }
