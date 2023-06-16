@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import { Form, useNavigate } from 'react-router-dom';
-
-import styles from './RegistrationWindow.module.scss';
 import { login } from '../../store/slicers/user.slicer';
+import { useStyles } from './RegistrationWindow.styles';
+
 const RegistrationWindow = ({ emailId, passwordId }) => {
+  const classes = useStyles();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -28,31 +30,31 @@ const RegistrationWindow = ({ emailId, passwordId }) => {
       action="/"
       method="get"
       onSubmit={handleRegistration}
-      className={classNames(styles.root)}
+      className={classNames(classes.root)}
     >
-      <div className={styles.title}>Sign in</div>
-      <div className={styles.form}>
-        <label className={styles.label} htmlFor={emailId}>
+      <div className={classes.title}>Sign in</div>
+      <div className={classes.form}>
+        <label className={classes.label} htmlFor={emailId}>
           Email address
         </label>
         <input
-          className={styles.textField}
+          className={classes.textField}
           id={emailId}
           name="email"
           type="email"
           required
         />
-        <label className={styles.label} htmlFor={passwordId}>
+        <label className={classes.label} htmlFor={passwordId}>
           Password
         </label>
         <input
-          className={styles.textField}
+          className={classes.textField}
           id={passwordId}
           name="password"
           type="password"
           required
         />
-        <Button className={styles.btn} type="submit">
+        <Button className={classes.btn} type="submit">
           Sign in
         </Button>
       </div>

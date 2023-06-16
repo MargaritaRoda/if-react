@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import classNames from 'classnames';
+import { useStyles } from './Button.styles';
 
-import styles from './Button.module.scss';
 export const Button = ({ children, type, className }) => {
+  const classes = useStyles();
+
   return (
-    <button className={classNames(styles.btn, className)} type={type}>
+    <button className={classNames(classes.root, className)} type={type}>
       {children}
     </button>
   );

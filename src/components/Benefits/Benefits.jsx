@@ -19,7 +19,7 @@ export const Benefits = () => {
         {BenefitsData.map(({ className, name, text }, index) => (
           <BenefitsItem
             key={index}
-            className={styles[`${className}`]}
+            className={styles[className]}
             name={name}
             text={text}
           />

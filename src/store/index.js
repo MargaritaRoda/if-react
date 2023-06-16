@@ -6,12 +6,14 @@ import topSectionForm from './slicers/topSectionForm.slicer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { apiSlice } from './slicers/apiSlice';
+import theme from './slicers/theme.slicer';
 
 const rootReducer = combineReducers({
   [user.name]: user.reducer,
   [availableHotelsFilter.name]: availableHotelsFilter.reducer,
   [topSectionForm.name]: topSectionForm.reducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
+  [theme.name]: theme.reducer,
 });
 
 const persistConfig = {
