@@ -9,7 +9,7 @@ import { useAvailableHotelsScrollContext } from '../../contexts/AvailableHotelsS
 
 import { CalendarInput } from './CalendarInput';
 import styles from './TopSectionForm.module.scss';
-import { setFilter } from '../../store/actions/availableHotelsFilter.actions';
+import { setFilter } from '../../store/slicers/availableHotelsFilter.slicer';
 import { selectTopSectionForm } from '../../store/selectors/topSectionForm.selectors';
 
 const scrollToAvailableHotels = (node) => {

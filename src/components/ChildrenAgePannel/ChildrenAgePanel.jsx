@@ -6,7 +6,7 @@ import { SelectAges } from './SelectAges';
 import styles from './ChildrenAgePanel.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectChildrenAges } from '../../store/selectors/topSectionForm.selectors';
-import { setChildrenAge } from '../../store/actions/topSectionForm.actions';
+import { setChildrenAge } from '../../store/slicers/topSectionForm.slicer';
 
 export const ChildrenAgePanel = ({ value }) => {
   const childrenAges = useSelector(selectChildrenAges);

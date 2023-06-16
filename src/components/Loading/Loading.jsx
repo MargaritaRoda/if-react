@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Loading = () => {
-  return <h2>🌀 Loading...</h2>;
+export const Loading = ({ className }) => {
+  return <h2 className={className}>🌀 Loading...</h2>;
 };
